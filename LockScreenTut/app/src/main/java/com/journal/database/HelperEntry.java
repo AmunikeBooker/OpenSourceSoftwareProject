@@ -48,6 +48,9 @@ public class HelperEntry extends DBHelper {
         // `id` and `timestamp` will be inserted automatically.
         values.put(Entry.COLUMN_TITTLE, entry.getTittle());
         values.put(Entry.COLUMN_BRIEF, entry.getBrief());
+        values.put(Entry.COLUMN_POST, entry.getPost());
+        values.put(Entry.COLUMN_PATH, entry.getPath());
+        values.put(Entry.COLUMN_IMAGES, entry.getImages());
 
         // insert row
         long id = db.insert(Entry.TABLE_NAME, null, values);
@@ -59,13 +62,20 @@ public class HelperEntry extends DBHelper {
         return id;
     }
 
+    /**
+     * Extract an entry
+     * @param id for the selected entry
+     * @return selected entry
+     */
     public Entry getEntry(long id) {
         // get readable database as we are not inserting anything
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(Entry.TABLE_NAME,
                 new String[]{Entry.COLUMN_ID, Entry.COLUMN_TIMESTAMP,
-                        Entry.COLUMN_TITTLE, Entry.COLUMN_BRIEF},
+                        Entry.COLUMN_TITTLE, Entry.COLUMN_BRIEF,
+                        Entry.COLUMN_POST, Entry.COLUMN_PATH,
+                        Entry.COLUMN_IMAGES},
                 Entry.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
 
@@ -77,7 +87,11 @@ public class HelperEntry extends DBHelper {
                 cursor.getInt(cursor != null ? cursor.getColumnIndex(Entry.COLUMN_ID) : 0),
                 cursor.getString(cursor.getColumnIndex(Entry.COLUMN_TIMESTAMP)),
                 cursor.getString(cursor.getColumnIndex(Entry.COLUMN_TITTLE)),
-                cursor.getString(cursor.getColumnIndex(Entry.COLUMN_BRIEF)));
+                cursor.getString(cursor.getColumnIndex(Entry.COLUMN_BRIEF)),
+                cursor.getString(cursor.getColumnIndex(Entry.COLUMN_POST)),
+                cursor.getString(cursor.getColumnIndex(Entry.COLUMN_PATH)),
+                cursor.getString(cursor.getColumnIndex(Entry.COLUMN_IMAGES))
+                );
 
         // close the db connection
         cursor.close();
@@ -103,6 +117,9 @@ public class HelperEntry extends DBHelper {
                 entry.setTimestamp(cursor.getString(cursor.getColumnIndex(Entry.COLUMN_TIMESTAMP)));
                 entry.setTittle(cursor.getString(cursor.getColumnIndex(Entry.COLUMN_TITTLE)));
                 entry.setBrief(cursor.getString(cursor.getColumnIndex(Entry.COLUMN_BRIEF)));
+                entry.setBrief(cursor.getString(cursor.getColumnIndex(Entry.COLUMN_POST)));
+                entry.setBrief(cursor.getString(cursor.getColumnIndex(Entry.COLUMN_PATH)));
+                entry.setBrief(cursor.getString(cursor.getColumnIndex(Entry.COLUMN_IMAGES)));
 
                 entries.add(entry);
             } while (cursor.moveToNext());
@@ -132,6 +149,9 @@ public class HelperEntry extends DBHelper {
         ContentValues values = new ContentValues();
         values.put(Entry.COLUMN_TITTLE, entry.getTittle());
         values.put(Entry.COLUMN_BRIEF, entry.getBrief());
+        values.put(Entry.COLUMN_POST, entry.getPost());
+        values.put(Entry.COLUMN_PATH, entry.getPath());
+        values.put(Entry.COLUMN_IMAGES, entry.getImages());
 
         // updating row
         return db.update(Entry.TABLE_NAME, values, Entry.COLUMN_ID + " = ?",

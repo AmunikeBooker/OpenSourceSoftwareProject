@@ -26,11 +26,11 @@ public class Entry {
             "CREATE TABLE " + TABLE_NAME + "("
                     + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + COLUMN_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP,"
-                    + COLUMN_TITTLE + " TEXT,"
-                    + COLUMN_BRIEF + " TEXT,"
-                    + COLUMN_POST + " TEXT,"
-                    + COLUMN_PATH + " TEXT,"
-                    + COLUMN_IMAGES + " TEXT"
+                    + COLUMN_TITTLE + " TEXT DEFAULT '',"
+                    + COLUMN_BRIEF + " TEXT DEFAULT '',"
+                    + COLUMN_POST + " TEXT DEFAULT '',"
+                    + COLUMN_PATH + " TEXT DEFAULT '',"
+                    + COLUMN_IMAGES + " TEXT DEFAULT ''"
                     + ")";
 
     public Entry() {
@@ -52,6 +52,17 @@ public class Entry {
         this.timestamp = timestamp;
         this.tittle = tittle;
         this.brief = brief;
+    }
+
+    public Entry(int id, String timestamp, String tittle, String brief,
+                 String post, String path, String images) {
+        this.id = id;
+        this.timestamp = timestamp;
+        this.tittle = tittle;
+        this.brief = brief;
+        this.post = post;
+        this.path = path;
+        this.images = images;
     }
 
     public Entry(String tittle, String brief) {
