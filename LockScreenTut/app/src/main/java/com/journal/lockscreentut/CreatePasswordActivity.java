@@ -42,8 +42,8 @@ public class CreatePasswordActivity extends AppCompatActivity {
                         editor.apply();
 
                         //ENTER THE APP
-                        Intent intent = new Intent(getApplicationContext(), EntryActivity.class);
-//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                        Intent intent = new Intent(getApplicationContext(), EntryActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
                     }else {
