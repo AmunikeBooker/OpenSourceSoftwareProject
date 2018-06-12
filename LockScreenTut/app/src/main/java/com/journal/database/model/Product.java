@@ -1,4 +1,4 @@
-package com.journal.lockscreentut;
+package com.journal.database.model;
 
 /**
  * Created by dell on 5/6/2018.

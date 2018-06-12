@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.journal.database.model.Product;
+
 import java.util.ArrayList;
 import java.util.List;
 

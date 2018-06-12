@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.journal.database.model.Product;
+
 import java.util.List;
 
 /**
