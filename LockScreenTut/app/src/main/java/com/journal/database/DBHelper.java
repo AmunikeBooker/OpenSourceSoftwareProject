@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.journal.database.model.Entry;
+import com.journal.database.model.Product;
 import com.journal.utils.Properties;
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -25,6 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // create table(s)
         db.execSQL(Entry.CREATE_TABLE);
+        db.execSQL(Product.CREATE_TABLE);
     }
 
     // Upgrading database
@@ -32,6 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + Entry.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + Product.TABLE_NAME);
 
         // Create tables again
         onCreate(db);

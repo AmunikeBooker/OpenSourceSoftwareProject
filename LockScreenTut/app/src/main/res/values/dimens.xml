@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="activity_margin">16dp</dimen>
-    <dimen name="dot_margin_right">10dp</dimen>
+    <dimen name="fab_margin">16sp</dimen>
+    <dimen name="activity_margin">16sp</dimen>
+    <dimen name="dot_margin_right">10sp</dimen>
+    <dimen name="dot_margin_left">10sp</dimen>
     <dimen name="msg_no_notes">26sp</dimen>
-    <dimen name="margin_top_no_notes">120dp</dimen>
+    <dimen name="margin_top_no_notes">120sp</dimen>
     <dimen name="lbl_new_note_title">20sp</dimen>
-    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_10">10sp</dimen>
     <dimen name="input_new_note">20sp</dimen>
-    <dimen name="dot_height">30dp</dimen>
+    <dimen name="dot_height">30sp</dimen>
     <dimen name="dot_text_size">40sp</dimen>
     <dimen name="timestamp">14sp</dimen>
     <dimen name="note_list_text">18sp</dimen>
+    <dimen name="item_offset">10sp</dimen>
+    <dimen name="detail_backdrop_height">250sp</dimen>
+    <dimen name="backdrop_title">30sp</dimen>
+    <dimen name="backdrop_subtitle">18sp</dimen>
+    <dimen name="card_margin">5sp</dimen>
+    <dimen name="card_radius">8sp</dimen>
+    <dimen name="cover_height">160sp</dimen>
+    <dimen name="title_padding">10sp</dimen>
+    <dimen name="title">15sp</dimen>
+    <dimen name="subtitle">12sp</dimen>
+    <dimen name="count_padding_bottom">5sp</dimen>
+    <dimen name="ic_album_overflow_width">20sp</dimen>
+    <dimen name="ic_album_overflow_height">30sp</dimen>
+    <dimen name="ic_album_overflow_margin_top">10sp</dimen>
+    <dimen name="app_bar_height">300dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

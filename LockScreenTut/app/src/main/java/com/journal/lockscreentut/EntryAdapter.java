@@ -1,6 +1,7 @@
 package com.journal.lockscreentut;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -16,23 +17,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.MyViewHolder> {
+public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryViewHolder> {
     private Context context;
     private List<Entry> itemList;
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView brief;
-        public TextView dot;
-        public TextView timestamp;
-
-        public MyViewHolder(View view) {
-            super(view);
-            brief = view.findViewById(R.id.brief);
-            dot = view.findViewById(R.id.dot);
-            timestamp = view.findViewById(R.id.timestamp);
-        }
-    }
-
 
     public EntryAdapter(Context context, List<Entry> itemList) {
         this.context = context;
@@ -40,15 +27,14 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.MyViewHolder
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public EntryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.entry_list_row, parent, false);
-
-        return new MyViewHolder(itemView);
+        return new EntryViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(EntryViewHolder holder, int position) {
 
         //Item
         Entry note = itemList.get(position);
@@ -87,4 +73,18 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.MyViewHolder
         }
         return "";
     }
+
+    public static class EntryViewHolder extends RecyclerView.ViewHolder {
+        public TextView brief;
+        public TextView dot;
+        public TextView timestamp;
+
+        public EntryViewHolder(View view) {
+            super(view);
+            brief = view.findViewById(R.id.brief);
+            dot = view.findViewById(R.id.dot);
+            timestamp = view.findViewById(R.id.timestamp);
+        }
+    }
+
 }
