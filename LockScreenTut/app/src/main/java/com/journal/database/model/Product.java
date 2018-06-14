@@ -13,6 +13,7 @@ public class Product {
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_BRIEF = "brief";
     public static final String COLUMN_POST = "post";
+    public static final String COLUMN_PATH = "path";
     public static final String COLUMN_IMG = "img";
 
 
@@ -24,11 +25,12 @@ public class Product {
                     + COLUMN_TITLE + " TEXT DEFAULT '',"
                     + COLUMN_BRIEF + " TEXT DEFAULT '',"
                     + COLUMN_POST + " TEXT DEFAULT '', "
+                    + COLUMN_PATH + " TEXT DEFAULT '', "
                     + COLUMN_IMG + " INTEGER "
                     + ")";
     
     private int id;
-    private String title, brief, timestamp, post;
+    private String title, brief, timestamp, post, path;
     private double rating;
     private double price;
     private int img;
@@ -46,13 +48,14 @@ public class Product {
     }
 
     public Product(int id, String timestamp, String title,
-                   String brief,  String post,
+                   String brief,  String post, String path,
                     int img) {
         this.id = id;
         this.title = title;
         this.brief = brief;
         this.post = post;
         this.timestamp = timestamp;
+        this.path = path;
         this.img = img;
     }
 
@@ -120,6 +123,10 @@ public class Product {
         return post;
     }
 
+    public String getPath() {
+        return path;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -150,6 +157,10 @@ public class Product {
 
     public void setImg(int img) {
         this.img = img;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }
 

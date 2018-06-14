@@ -2,6 +2,7 @@ package com.journal.lockscreentut;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.support.design.widget.AppBarLayout;
@@ -60,8 +61,13 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String value = "Action";
+                String key = "key";
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                        .setAction(value, null).show();
+                Intent myIntent = new Intent(MainActivity.this, CapturePictureActivity.class);
+                myIntent.putExtra(key, value); //Optional parameters
+                MainActivity.this.startActivity(myIntent);
             }
         });
         initCollapsingToolbar();

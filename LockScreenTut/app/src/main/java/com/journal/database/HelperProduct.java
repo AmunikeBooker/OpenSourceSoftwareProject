@@ -49,6 +49,7 @@ public class HelperProduct extends DBHelper {
         values.put(Product.COLUMN_TITLE, product.getTitle());
         values.put(Product.COLUMN_BRIEF, product.getBrief());
         values.put(Product.COLUMN_POST, product.getPost());
+        values.put(Product.COLUMN_PATH, product.getPath());
         values.put(Product.COLUMN_IMG, product.getImg());
 //        values.put(Product.COLUMN_TIMESTAMP, product.getTimestamp());
 
@@ -75,6 +76,7 @@ public class HelperProduct extends DBHelper {
                 new String[]{Product.COLUMN_ID, Product.COLUMN_TIMESTAMP,
                         Product.COLUMN_TITLE, Product.COLUMN_BRIEF,
                         Product.COLUMN_POST,
+                        Product.COLUMN_PATH,
                         Product.COLUMN_IMG},
                 Product.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
@@ -89,6 +91,7 @@ public class HelperProduct extends DBHelper {
                 cursor.getString(cursor.getColumnIndex(Product.COLUMN_TITLE)),
                 cursor.getString(cursor.getColumnIndex(Product.COLUMN_BRIEF)),
                 cursor.getString(cursor.getColumnIndex(Product.COLUMN_POST)),
+                cursor.getString(cursor.getColumnIndex(Product.COLUMN_PATH)),
                 cursor.getInt(cursor.getColumnIndex(Product.COLUMN_IMG))
                 );
 
@@ -117,6 +120,7 @@ public class HelperProduct extends DBHelper {
                 product.setTitle(cursor.getString(cursor.getColumnIndex(Product.COLUMN_TITLE)));
                 product.setBrief(cursor.getString(cursor.getColumnIndex(Product.COLUMN_BRIEF)));
                 product.setBrief(cursor.getString(cursor.getColumnIndex(Product.COLUMN_POST)));
+                product.setBrief(cursor.getString(cursor.getColumnIndex(Product.COLUMN_PATH)));
                 product.setBrief(cursor.getString(cursor.getColumnIndex(Product.COLUMN_IMG)));
 
                 entries.add(product);
@@ -148,6 +152,7 @@ public class HelperProduct extends DBHelper {
         values.put(Product.COLUMN_TITLE, product.getTitle());
         values.put(Product.COLUMN_BRIEF, product.getBrief());
         values.put(Product.COLUMN_POST, product.getPost());
+        values.put(Product.COLUMN_PATH, product.getPath());
         values.put(Product.COLUMN_IMG, product.getImg());
 
         // updating row

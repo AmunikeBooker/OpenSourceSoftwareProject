@@ -2,6 +2,7 @@
 <resources>
     <dimen name="fab_margin">16sp</dimen>
     <dimen name="activity_margin">16sp</dimen>
+    <dimen name="padding">20sp</dimen>
     <dimen name="dot_margin_right">10sp</dimen>
     <dimen name="dot_margin_left">10sp</dimen>
     <dimen name="msg_no_notes">26sp</dimen>

@@ -1,6 +1,8 @@
 package com.journal.lockscreentut;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -54,16 +56,34 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.textViewDesc.setText(product.getBrief());
         holder.textViewRating.setText(String.valueOf(product.getImg()));
         holder.timestamp.setText(String.valueOf(formatDate(product.getTimestamp())));
-        if (product.getImg() != 0)
+
+        if ( product.getPath()!= null && !product.getPath().isEmpty())
         {
-            holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImg()));
-            // loading album cover using Glide library
-            Glide.with(mCtx).load(product.getImg()).into(holder.imageView);
+
+            holder.imageView.setImageBitmap(null);
+//        note.setText("by Back Uri");
+            try {
+                Bitmap bm = BitmapFactory.decodeFile(product.getPath());
+                holder.imageView.setImageBitmap(bm);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }else
         {
-            // loading album cover using Glide library
-            Glide.with(mCtx).load(R.drawable.nf).into(holder.imageView);
+            if (product.getImg() != 0)
+            {
+                holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImg()));
+                // loading album cover using Glide library
+                Glide.with(mCtx).load(product.getImg()).into(holder.imageView);
+            }else
+            {
+                // loading album cover using Glide library
+                Glide.with(mCtx).load(R.drawable.nf).into(holder.imageView);
+            }
         }
+
+
 
         /*holder.overflow.setOnClickListener(new View.OnClickListener() {
             @Override
